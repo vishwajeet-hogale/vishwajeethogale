@@ -1,0 +1,278 @@
+*{
+    box-sizing: border-box;
+    
+}
+html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    background-color: rgba(255,255,255,0.9); 
+    font-family: 'Lato', sans-serif;
+}
+
+header{
+    position: fixed;
+    background-color: white;
+    top: 0;
+    padding: 15px 7px;
+    width: 100%;
+    z-index: 2000;
+    /* background-color: transparent; */
+}
+div.portfolio-name{
+    float: left;
+}
+
+div.portfolio-name a{
+    font-size:25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+    color: rgba(0, 0, 0, 0.9);
+}
+.portfolio-name a:focus,
+.portfolio-name a:hover{
+    text-decoration: none;
+    color: grey;
+}
+nav {
+    /* padding: 0;
+    margin: 0; */
+    margin-top: 12px;
+    float: right;
+    margin-right: 20px;
+}
+nav ul{
+    list-style-type: none;
+}
+nav li{
+    display: inline-block;
+    margin-right: 25px;
+    /* padding-right: 40px; */
+}
+nav li a:hover,a:focus{
+    text-decoration: none;
+    color: grey;
+}
+nav ul li a{
+    /* list-style: none; */
+    font-size:20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    /* margin-left: 5px; */
+    color: rgba(0, 0, 0, 0.9);
+}
+.projects{
+  margin: auto auto 20px 20px;
+}
+header nav ul li.uff1{
+  display: none !important;
+}
+@media screen and (max-width: 1024px) {
+  header nav ul li.uff{
+      display: none !important;
+  }
+  header nav ul li.uff1{
+    display: block !important;
+}
+  .more{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+}
+
+
+
+
+.car-slide{
+    top: 28px;
+    position: relative;
+    width: 100%;
+}
+.my-name{
+    margin-top: 15px;
+    z-index: 3000;
+    /* position: absolute; */
+    width: 100%;
+    
+}
+.my-name h1{
+    font-size: 40px;
+    font-weight: 700;
+    /* color: rgba(0, 0, 0, 0.9); */
+    
+    color: rgba(0,0,0,0.9);
+    letter-spacing: 1px;
+}
+.about-me h1{
+    font-size: 40px;
+    font-weight: 800;
+    color: rgba(0,0,0,0.9);
+    line-height:1.5em;
+}
+a.ll{
+    font-size: 45px;
+    font-weight: 800;
+    color: rgb(145, 59, 145) !important;
+}
+
+.more{
+  padding: 100px 20px 40px 5px !important;
+}
+.more .describe{
+  margin-bottom: 5px;
+}
+.more .describe h2{
+  font-size: 50px;
+  color: rgb(145, 59, 145) !important;
+  font-weight: 700;
+}
+.more .desc p{
+  color: black;
+  font-weight: 700 !important;
+  font-size: 20px;
+}
+.more ul{
+  padding-left: 30px;
+  padding: 20px;
+  /* text-align: left; */
+  margin-top: 10px;
+}
+.more ul li{
+  list-style: none;
+  padding: 10px auto;
+  font-size: 30px;
+  color: rgb(145, 59, 145) !important;
+  font-weight: 700;
+}
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+    padding: 40px;
+  display: grid;
+  grid-template-areas:
+    'header header header right right right'
+    'menu main main right right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+.row{
+    padding: 20px;
+}
+.row .pic-1{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+   .img-hover-zoom {
+    height: 300px; /* [1.1] Set it as per your need */
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+  }
+  
+  /* [2] Transition property for smooth transformation of images */
+  .img-hover-zoom img {
+    transition: transform .5s ease;
+  }
+  
+  /* [3] Finally, transforming the image when container gets hovered */
+  .img-hover-zoom:hover img {
+    transform: scale(1.5);
+  }
+  .hvrbox * {
+    box-sizing: border-box;
+  }
+  .hvrbox {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+  }
+  .hvrbox img {
+    max-width: 100%;
+  }
+  .hvrbox .hvrbox-layer_bottom {
+    display: block;
+  }
+  .hvrbox .hvrbox-layer_top {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 15px;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -ms-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+  }
+  .hvrbox:hover .hvrbox-layer_top,
+  .hvrbox.active .hvrbox-layer_top {
+    opacity: 1;
+  }
+  .hvrbox .hvrbox-text {
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .hvrbox .hvrbox-text_mobile {
+    font-size: 15px;
+    border-top: 1px solid rgb(179, 179, 179); /* for old browsers */
+    border-top: 1px solid rgba(179, 179, 179, 0.7);
+    margin-top: 5px;
+    padding-top: 2px;
+    display: none;
+  }
+  .hvrbox.active .hvrbox-text_mobile {
+    display: block;
+  }
+   
+
+
+
+
+
+
+

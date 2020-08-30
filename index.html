@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" type="text/css" href="./home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <style>
+      
+      
+      .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 4000;
+        top: 0;
+        left: 0;
+        background-color: rgb(255,255,255);
+        background-color: rgba(255,255,255, 0.99);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 50px;
+        font-weight: 700;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color:  rgb(145, 59, 145);
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 70px;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .overlay a {font-size: 20px}
+        .overlay .closebtn {
+        font-size: 70px;
+        top: 15px;
+        right: 35px;
+        }
+      }
+      </style>
+</head>
+<body>
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <!-- <div class="text-center" >
+        <h1 style="color:  rgb(145, 59, 145);font-size: 60px;font-weight: 700;">Menu</h1>
+    </div> -->
+    <div class="overlay-content">
+      <li style="list-style: none;"><a href="#projects">Projects</a></li>
+      <li style="list-style: none;"><a href="#about-mee">About me</a></li>
+      <li style="list-style: none;"><a href="#contact">Contact me</a></li>
+    </div>
+  </div>
+  
+  
+  
+    <header>
+        <div class="portfolio-name p-2 ">
+            <a href="">Vishwajeet Hogale</a>
+        </div>
+        <nav>
+            <ul class="">
+                <li class="uff"><a href="#projects">Projects</a></li>
+                <li class="uff"><a href="#about-mee">About me</a></li>
+                <li class="uff"><a href="#contact">Contact me</a></li>
+                <li class="uff1"><span  style="font-size:20px;cursor:pointer;" onclick="openNav()" >&#9776;</span></li>
+            </ul>
+
+        </nav>
+        
+          
+        
+        
+    </header>
+    
+        <section class=" car-slide" style="width: 100%;padding: 40px;" >
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" >
+                <div class="carousel-inner">
+                  <div class="carousel-item active" style="height: 550px;">
+                    <img src="./images/yello.jpg" class="d-block w-100" alt="..." >
+                    
+                  </div>
+                  <div class="carousel-item" style="height: 550px;">
+                    <img src="./images/pic3.jpg" class="d-block w-100" alt="..." >
+                  </div>
+                  <div class="carousel-item" style="height: 550px;">
+                    <img src="./images/pic.jpg" class="d-block w-100" alt="..." >
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+        </section>
+        <section class=" my-name text-center justify-content-center " style="margin-top: 100px;width: 100%;" id="about-mee">
+          <span><h1 style="text-transform: uppercase;font-weight: 800;font-size: 60px;">About Me</h1></span>
+          <h1></h1>
+        </section>
+        <section class="about-me text-center justify-content-center p-4 my-3" style="width: 100%;">
+          <div class=" container text-center d-inline-block">
+            <h1 ><a class="ll">Vishwajeet Hogale </a>is an enthusiastic coder and creating tech that solves user's problems excites him.<br></h1>
+            <h1 class="py-1" ><a class="ll">Machine Learning </a>and <a class="ll">Web Development</a> are his strengths. He is a student at <a class="ll">PES University </a>pursuing his bachelor's in Techonology with major in Computer Science</h1>
+            
+          </div>
+          <div class="container d-inline-block">
+            <img src="" alt="">
+          </div>
+        </section>
+        <section style="width: 100%;padding-top: 50px;padding-bottom:50px;background: rgba(210,210,220, 0.9);">
+          <section class=" my-name text-center justify-content-center " style="padding: 40  px 60px auto auto;">
+            <span class="py-5"><h1 style="text-transform: uppercase;font-weight: 800;font-size: 60px;">Skills</h1></span>
+            
+          </section>
+          <div class="row justify-content-center d-flex skills-part">
+            <div class="d-inline-block" id="chartdiv" style="height: 600px;width: 500px;"></div>
+            <div class="container-sm d-inline-block  more">
+              <!-- <h1>More</h1> -->
+              <div class="describe">
+                <h2>Full Stack</h2>
+                <div class="desc">
+                  <p>He is a full stack developer who knows <b>Flask,Django,HTML,SQL,CSS and JS</b></p>
+                </div>
+              </div>
+              <div class="describe">
+                <h2>Machine Learning</h2>
+                <div class="desc">
+                  <p style="font-size: 16px;">He has worked with <b>multiple models</b> and has done a couple of analysis based projects</p>
+                </div>
+              </div>
+              <div class="describe">
+                <h2>Deep Learning</h2>
+                <div class="desc">
+                  <p>He has worked with <b>CNN, ANN, GANs, Auto-Encoders, etc</b></p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+        <section class=" my-name text-center justify-content-center " style="margin-top: 70px;width: 100%;" id="projects">
+          <span><h1 style="text-transform: uppercase;font-weight: 800;font-size: 60px;">Projects</h1></span>
+          <h1></h1>
+        </section>
+        <div class="row no-gutter align-items-center justify-content-center my-5 projects" style="width: 100%;padding-right: 10px;padding-left: 40px;">
+  
+ 
+  
+
+          <div class="hvrbox img-hover-zoom">
+            <img src="./images/music.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
+            <div class="hvrbox-layer_top ">
+              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
+                <h2 style="font-size: 50px;">Music Generation</h2>
+            </div>
+              <div class="hvrbox-text ">This project uses MIDI files of different songs and makes sequences of notes of found in the songs. Now this sequence data is fed to LSTM for generation of a new tune</div>
+
+            </div>
+          </div>
+          
+          <div class="hvrbox img-hover-zoom">
+            <img src="./images/summary.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
+            <div class="hvrbox-layer_top ">
+              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
+                <h2 style="font-size: 50px;">Text Summarization</h2>
+            </div>
+              <div class="hvrbox-text ">This project uses an abstractive approach to summarize text given a paragraph. It uses News articles as a dataset and auto-encoders to give two lines summary of the articles.</div>
+            </div>
+          </div>
+          
+          <div class="hvrbox img-hover-zoom">
+            <img src="./images/poem.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
+            <div class="hvrbox-layer_top ">
+              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
+                <h2 style="font-size: 50px;">Text Generation</h2>
+            </div>
+              <div class="hvrbox-text ">This project deals with generation of poems, when the LSTM model is given a few words to begin with it automatically produces a sequence of words thereby forming a poem.</div>
+            </div>
+          </div>
+          
+          <div class="hvrbox img-hover-zoom">
+            <img src="./images/pets.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
+            <div class="hvrbox-layer_top ">
+              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
+                <h2 style="font-size: 50px;">Pet Clinic Management</h2>
+            </div>
+              <div class="hvrbox-text ">This project is a CRUD web app and it helps in maintaining aand analyzing different pets at a clinic.</div>
+            </div>
+          </div>
+          <div class="hvrbox img-hover-zoom">
+            <img src="./images/mask.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
+            <div class="hvrbox-layer_top ">
+                <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
+                    <h2 style="font-size: 50px;">Mask Detection</h2>
+                </div>
+              <div class="hvrbox-text ">This project uses openCV and CNN model to predict if a person is wearing a mask or not.</div>
+            </div>
+          </div>
+          <div class="hvrbox img-hover-zoom">
+            <img src="./images/crick.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
+            <div class="hvrbox-layer_top ">
+              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
+                <h2 style="font-size: 50px;">Cricket Analysis</h2>
+              </div>
+              <div class="hvrbox-text ">Analysis of professional athletes is very important as it helps in enhancing their performance.This project analyses the performance of players who played the 2011 Crick World Cup</div>
+            </div>
+          </div>
+          <div class="hvrbox img-hover-zoom">
+            <img src="./images/pic.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
+            <div class="hvrbox-layer_top ">
+              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
+                <h2>Simple ChatBot</h2>
+              </div>
+              <div class="hvrbox-text ">Chat Bot is used in many places today and so this chatbot was able to identify the intent of a person's question and it replied back with an answer. This project is still under development but soon it'll be ready.</div>
+            </div>
+          </div>
+          <div class="hvrbox img-hover-zoom">
+            <img src="./images/fake.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
+            <div class="hvrbox-layer_top ">
+              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
+                <h2 style="font-size: 50px;">Fake News Detection</h2>
+            </div>
+              <div class="hvrbox-text ">Fake news can be really dangerous at times and the detection of such news plays a vital role in our society. This project detects fake news with an accuracy of <b>89%</b>The work is still going to make the model better and soon this project will also be ready.</div>
+            </div>
+          </div>
+        </div> 
+        <section class=" justify-content-center text-center" id="contact" style="height: 300px;width: 100%;padding-top: 20px;background: rgba(210,210,220, 0.9);">
+          <div class="contact "><h1 style="font-size:50px;font-weight: 700;padding-bottom: 30px;">Want to connect?</h1></div>
+          
+          <a href="mailto: vishwajeethogale307@gmail.com" style="text-decoration: none;color:rgba(0,0,0,0.9);"><span style="font-size: 60px;">&#9993;<p style="font-size: 20px;">Drop me a mail to collaborate</p></span></a>
+          <h2 style="font-size: 20px;">©2020 Vishwajeet Hogale</h2>
+          
+        </section>   
+        <script src="./chart.js"></script>
+        <script src="./overlay.js"></script>
+        <script src="./appear.js"></script>
+</body>
+</html>
