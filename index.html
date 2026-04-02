@@ -1,273 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishwajeet Hogale</title>
-    <!-- Latest compiled and minified CSS -->
-    <!-- Latest compiled and minified CSS -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishwajeet Hogale | AI & Computer Vision</title>
+<meta name="description" content="Vishwajeet Hogale — AI Engineer specializing in multimodal learning, computer vision, and autonomous driving systems.">
+<meta name="keywords" content="AI, Machine Learning, Computer Vision, Autonomous Driving, Portfolio">
+<meta property="og:title" content="Vishwajeet Hogale | AI & Computer Vision">
+<meta property="og:description" content="AI graduate student building multimodal systems for autonomous driving and scene-level reasoning.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a2e;
+    --accent:#6c63ff;--accent2:#00d2ff;--accent3:#7f5af0;
+    --text:#e0e0e0;--text2:#a0a0b0;--text3:#707080;
+    --grad1:linear-gradient(135deg,#6c63ff,#00d2ff);
+    --grad2:linear-gradient(135deg,#7f5af0,#2cb67d);
+    --card-bg:rgba(255,255,255,0.03);--card-border:rgba(255,255,255,0.06);
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
+  ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
 
-    <link rel="stylesheet" type="text/css" href="./home.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-    <style>
-      
-      
-      .overlay {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 4000;
-        top: 0;
-        left: 0;
-        background-color: rgb(255,255,255);
-        background-color: rgba(255,255,255, 0.99);
-        overflow-x: hidden;
-        transition: 0.5s;
-      }
-      
-      .overlay-content {
-        position: relative;
-        top: 25%;
-        width: 100%;
-        text-align: center;
-        margin-top: 30px;
-      }
-      
-      .overlay a {
-        padding: 8px;
-        text-decoration: none;
-        font-size: 50px;
-        font-weight: 700;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-      }
-      
-      .overlay a:hover, .overlay a:focus {
-        color:  rgb(145, 59, 145);
-      }
-      
-      .overlay .closebtn {
-        position: absolute;
-        top: 20px;
-        right: 45px;
-        font-size: 70px;
-      }
-      
-      @media screen and (max-height: 450px) {
-        .overlay a {font-size: 20px}
-        .overlay .closebtn {
-        font-size: 70px;
-        top: 15px;
-        right: 35px;
-        }
-      }
-      </style>
+  /* Nav */
+  nav{position:fixed;top:0;width:100%;z-index:1000;backdrop-filter:blur(20px);background:rgba(10,10,15,0.8);border-bottom:1px solid var(--card-border);transition:all .3s}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 32px}
+  .nav-logo{font-weight:800;font-size:1.3rem;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{color:var(--text2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .3s;position:relative}
+  .nav-links a:hover{color:#fff}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--grad1);transition:width .3s}
+  .nav-links a:hover::after{width:100%}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+  .hamburger span{width:24px;height:2px;background:var(--text);transition:.3s}
+
+  /* Hero */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:120px 32px 80px}
+  .hero-bg{position:absolute;inset:0;overflow:hidden}
+  .hero-bg .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;animation:float 8s ease-in-out infinite}
+  .orb1{width:500px;height:500px;background:#6c63ff;top:-10%;left:-5%}.orb2{width:400px;height:400px;background:#00d2ff;bottom:-10%;right:-5%;animation-delay:-4s}.orb3{width:300px;height:300px;background:#7f5af0;top:40%;left:50%;animation-delay:-2s}
+  @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+  .hero-grid{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px}
+  .hero-content{position:relative;z-index:1;max-width:800px;text-align:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:rgba(108,99,255,.1);border:1px solid rgba(108,99,255,.3);font-size:.82rem;color:var(--accent);margin-bottom:24px;font-weight:500}
+  .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:#2cb67d;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .hero h1{font-size:3.5rem;font-weight:800;line-height:1.15;margin-bottom:20px}
+  .hero h1 .gradient{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{font-size:1.1rem;color:var(--text2);max-width:600px;margin:0 auto 36px;line-height:1.8}
+  .hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:14px 32px;border-radius:12px;font-size:.92rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none;font-family:inherit;display:inline-block}
+  .btn-primary{background:var(--grad1);color:#fff;box-shadow:0 4px 24px rgba(108,99,255,.3)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(108,99,255,.45)}
+  .btn-secondary{background:transparent;color:var(--text);border:1px solid var(--card-border)}
+  .btn-secondary:hover{border-color:var(--accent);color:#fff;transform:translateY(-2px)}
+  .hero-stats{display:flex;gap:48px;justify-content:center;margin-top:56px}
+  .stat{text-align:center}.stat-num{font-size:2rem;font-weight:800;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .stat-label{font-size:.78rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+  /* Sections */
+  section{padding:100px 32px}.section-header{text-align:center;margin-bottom:64px}
+  .section-tag{display:inline-block;padding:6px 16px;border-radius:50px;background:rgba(108,99,255,.1);color:var(--accent);font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+  .section-title{font-size:2.4rem;font-weight:800}
+  .section-sub{color:var(--text2);max-width:550px;margin:12px auto 0;font-size:1rem}
+  .container{max-width:1100px;margin:0 auto}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .about-text p{color:var(--text2);margin-bottom:16px;font-size:.97rem}
+  .about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  .highlight{padding:20px;border-radius:14px;background:var(--card-bg);border:1px solid var(--card-border)}
+  .highlight-icon{font-size:1.6rem;margin-bottom:8px}
+  .highlight h4{font-size:.88rem;font-weight:600;margin-bottom:4px}
+  .highlight p{font-size:.78rem;color:var(--text3)}
+  .about-visual{display:flex;justify-content:center;align-items:center}
+  .code-window{background:var(--bg2);border:1px solid var(--card-border);border-radius:16px;overflow:hidden;width:100%;max-width:420px}
+  .code-bar{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid var(--card-border)}
+  .code-dot{width:10px;height:10px;border-radius:50%}.code-dot.r{background:#ff5f57}.code-dot.y{background:#ffbd2e}.code-dot.g{background:#28c840}
+  .code-body{padding:20px;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:2;color:var(--text2)}
+  .code-body .kw{color:#c792ea}.code-body .fn{color:#82aaff}.code-body .str{color:#c3e88d}.code-body .cm{color:#546e7a}.code-body .op{color:#89ddff}
+
+  /* Timeline */
+  .timeline{position:relative;padding-left:40px}
+  .timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent)}
+  .timeline-item{position:relative;margin-bottom:48px}
+  .timeline-dot{position:absolute;left:-34px;top:6px;width:16px;height:16px;border-radius:50%;border:3px solid var(--accent);background:var(--bg)}
+  .timeline-item:first-child .timeline-dot{background:var(--accent);box-shadow:0 0 16px rgba(108,99,255,.5)}
+  .timeline-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:28px 32px;transition:all .3s}
+  .timeline-card:hover{border-color:rgba(108,99,255,.3);transform:translateX(4px)}
+  .timeline-top{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .timeline-role{font-size:1.15rem;font-weight:700}
+  .timeline-company{font-size:.92rem;color:var(--accent);font-weight:500}
+  .timeline-date{font-size:.8rem;color:var(--text3);background:rgba(255,255,255,.04);padding:4px 12px;border-radius:20px;white-space:nowrap}
+  .timeline-loc{font-size:.82rem;color:var(--text3);margin-bottom:14px}
+  .timeline-points{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .timeline-points li{font-size:.88rem;color:var(--text2);padding-left:18px;position:relative}
+  .timeline-points li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+
+  /* Skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .skill-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:28px;transition:all .3s}
+  .skill-card:hover{border-color:rgba(108,99,255,.3);transform:translateY(-4px)}
+  .skill-card-header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .skill-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+  .skill-card h3{font-size:1rem;font-weight:700}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+  .skill-tag{padding:6px 14px;border-radius:8px;font-size:.78rem;font-weight:500;background:rgba(108,99,255,.08);color:var(--text2);border:1px solid rgba(108,99,255,.12);transition:all .3s}
+  .skill-tag:hover{background:rgba(108,99,255,.15);color:#fff}
+
+  /* Projects */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+  .project-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;overflow:hidden;transition:all .4s}
+  .project-card:hover{border-color:rgba(108,99,255,.3);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .project-banner{height:8px}
+  .project-body{padding:28px}
+  .project-body h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+  .project-body p{font-size:.85rem;color:var(--text2);margin-bottom:18px;line-height:1.7}
+  .project-tech{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+  .project-tech span{padding:4px 10px;border-radius:6px;font-size:.72rem;background:rgba(0,210,255,.08);color:var(--accent2);border:1px solid rgba(0,210,255,.15)}
+  .project-links{display:flex;gap:12px}
+  .project-link{font-size:.82rem;color:var(--accent);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:4px;transition:color .3s}
+  .project-link:hover{color:#fff}
+
+  /* Publications */
+  .pub-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:28px 32px;margin-bottom:20px;transition:all .3s}
+  .pub-card:hover{border-color:rgba(108,99,255,.3)}
+  .pub-badge{display:inline-block;padding:4px 12px;border-radius:6px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .pub-badge.paper{background:rgba(108,99,255,.12);color:var(--accent)}
+  .pub-badge.patent{background:rgba(44,182,125,.12);color:#2cb67d}
+  .pub-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+  .pub-card p{font-size:.88rem;color:var(--text2)}
+  .pub-link{margin-top:12px;display:inline-block}
+
+  /* Education */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .edu-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:28px 32px;transition:all .3s}
+  .edu-card:hover{border-color:rgba(108,99,255,.3)}
+  .edu-card .school{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+  .edu-card .degree{font-size:.9rem;color:var(--accent);margin-bottom:4px}
+  .edu-card .period{font-size:.82rem;color:var(--text3);margin-bottom:12px}
+  .edu-card .gpa{display:inline-block;padding:4px 12px;border-radius:6px;font-size:.82rem;font-weight:600;background:rgba(108,99,255,.1);color:var(--accent)}
+
+  /* Contact */
+  .contact-section{background:var(--bg2)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .contact-info h3{font-size:1.8rem;font-weight:800;margin-bottom:16px}
+  .contact-info p{color:var(--text2);margin-bottom:32px}
+  .contact-links{display:flex;flex-direction:column;gap:16px}
+  .contact-item{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:12px;background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;color:var(--text);transition:all .3s}
+  .contact-item:hover{border-color:var(--accent);transform:translateX(6px)}
+  .contact-item .ci-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+  .contact-item .ci-label{font-size:.78rem;color:var(--text3)}
+  .contact-item .ci-value{font-size:.92rem;font-weight:500}
+  .contact-cta{text-align:center}
+  .contact-cta .cta-box{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(0,210,255,.1));border:1px solid rgba(108,99,255,.2);border-radius:20px;padding:48px;text-align:center}
+  .contact-cta .cta-box h3{font-size:1.4rem;font-weight:700;margin-bottom:12px}
+  .contact-cta .cta-box p{color:var(--text2);margin-bottom:28px;font-size:.92rem}
+
+  footer{padding:32px;text-align:center;font-size:.82rem;color:var(--text3);border-top:1px solid var(--card-border)}
+  .fade-up{opacity:0;transform:translateY(30px);transition:all .6s ease}.fade-up.visible{opacity:1;transform:translateY(0)}
+
+  /* Filter buttons */
+  .filter-bar{display:flex;gap:10px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+  .filter-btn{padding:8px 20px;border-radius:50px;font-size:.82rem;font-weight:500;background:var(--card-bg);border:1px solid var(--card-border);color:var(--text2);cursor:pointer;transition:all .3s;font-family:inherit}
+  .filter-btn:hover,.filter-btn.active{background:rgba(108,99,255,.15);border-color:var(--accent);color:#fff}
+
+  @media(max-width:768px){
+    .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:rgba(10,10,15,.97);flex-direction:column;padding:20px 32px;border-bottom:1px solid var(--card-border)}
+    .nav-links.open{display:flex}
+    .hamburger{display:flex}
+    .hero h1{font-size:2.2rem}
+    .hero-stats{gap:24px}
+    .about-grid,.edu-grid,.contact-grid{grid-template-columns:1fr}
+    .projects-grid{grid-template-columns:1fr}
+    section{padding:60px 20px}
+  }
+</style>
 </head>
 <body>
-  <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <!-- <div class="text-center" >
-        <h1 style="color:  rgb(145, 59, 145);font-size: 60px;font-weight: 700;">Menu</h1>
-    </div> -->
-    <div class="overlay-content">
-      <li style="list-style: none;"><a href="#projects">Projects</a></li>
-      <li style="list-style: none;"><a href="#about-mee">About me</a></li>
-      <li style="list-style: none;"><a href="#contact">Contact me</a></li>
+
+<!-- All content rendered by JS from portfolioData -->
+<div id="app"></div>
+
+<script>
+// ============================================================
+//  PORTFOLIO DATA — Edit this JSON to update the entire site
+// ============================================================
+const portfolioData = {
+  "meta": {
+    "name": "Vishwajeet Hogale",
+    "title": "AI & Computer Vision",
+    "heroTagline": "Open to Opportunities",
+    "heroHeading": "Hi, I'm <span class='gradient'>Vishwajeet Hogale</span>",
+    "heroDescription": "AI graduate student at Northeastern University building multimodal systems that fuse video, sensor data, and language for autonomous driving and scene-level reasoning.",
+    "resumeUrl": "",
+    "stats": [
+      { "value": "3+", "label": "Years Experience" },
+      { "value": "6+", "label": "ML Projects" },
+      { "value": "2", "label": "Publications" }
+    ]
+  },
+
+  "about": {
+    "paragraphs": [
+      "I'm an AI graduate student deeply interested in multimodal representation learning, computer vision, and agents that understand dynamic environments.",
+      "My recent work explores fusing video, sensor data, and language to model complex driving behavior and perform scene-level reasoning. I've built autonomous driving intelligence systems, multimodal encoders, scene-level retrieval pipelines, and lightweight tracking models.",
+      "I enjoy bridging research ideas with production engineering through PyTorch, ONNX/TensorRT, MLOps, and scalable model serving — designing AI that generalizes well, runs efficiently, and helps people make safer, faster, more informed decisions."
+    ],
+    "highlights": [
+      { "icon": "🧠", "title": "Multimodal AI", "description": "VLMs, BEV fusion, cross-modal attention" },
+      { "icon": "🚗", "title": "Autonomous Driving", "description": "Perception, scene understanding, fault analysis" },
+      { "icon": "⚡", "title": "MLOps", "description": "PyTorch Lightning, Azure ML, DDP" },
+      { "icon": "🔬", "title": "Research", "description": "Published at MICAD 2025, patent in progress" }
+    ],
+    "codeSnippet": {
+      "filename": "vishwajeet.py",
+      "lines": [
+        { "text": "# vishwajeet.py", "class": "cm" },
+        { "text": "" },
+        { "text": "<span class='kw'>class</span> <span class='fn'>VishwajeetHogale</span>:" },
+        { "text": "  <span class='kw'>def</span> <span class='fn'>__init__</span>(self):" },
+        { "text": "    self.role = <span class='str'>\"ML Engineer\"</span>" },
+        { "text": "    self.focus = [" },
+        { "text": "      <span class='str'>\"Computer Vision\"</span>," },
+        { "text": "      <span class='str'>\"Multimodal Learning\"</span>," },
+        { "text": "      <span class='str'>\"Autonomous Driving\"</span>," },
+        { "text": "    ]" },
+        { "text": "    self.tools = [" },
+        { "text": "      <span class='str'>\"PyTorch\"</span>, <span class='str'>\"ONNX\"</span>," },
+        { "text": "      <span class='str'>\"Azure ML\"</span>, <span class='str'>\"DDP\"</span>" },
+        { "text": "    ]" },
+        { "text": "" },
+        { "text": "  <span class='kw'>def</span> <span class='fn'>build</span>(self, idea):" },
+        { "text": "    <span class='kw'>return</span> idea <span class='op'>→</span> production" }
+      ]
+    }
+  },
+
+  "experience": [
+    {
+      "role": "ML Intern — Autonomous Driving",
+      "company": "Robert Bosch LLC",
+      "date": "May 2025 – Dec 2025",
+      "location": "Sunnyvale, California",
+      "points": [
+        "Architected a multimodal VLM-based foundation model fusing camera, sensor signals, and LIDAR BEV for autonomous driving fault analysis — saving $2M+ annually",
+        "Innovated a windowed decoder transformer over VideoMAE embeddings, compressing temporal context from 1568 to 50 tublets and boosting bug classification accuracy from 81% to 89%",
+        "Built autolabeling pipeline using DETR3D, reducing manual annotation effort by 40%",
+        "Scaled model training using PyTorch Lightning DDP with drift & coverage tracking on Azure ML"
+      ]
+    },
+    {
+      "role": "Data Analyst",
+      "company": "Mercedes-Benz R&D India",
+      "date": "Aug 2022 – Jul 2024",
+      "location": "Bangalore, India",
+      "points": [
+        "Engineered an ML-driven ticket allocation system using XGBoost & K-Means, reducing external support costs by 20%",
+        "Developed a Streamlit conversational web app with Gemini for global buyers to query procurement data with interactive visualizations"
+      ]
+    }
+  ],
+
+  "skills": [
+    {
+      "icon": "💻",
+      "title": "Languages",
+      "color": "rgba(108,99,255,.12)",
+      "items": ["Python", "SQL", "C", "C++"]
+    },
+    {
+      "icon": "🤖",
+      "title": "ML / Deep Learning",
+      "color": "rgba(0,210,255,.12)",
+      "items": ["PyTorch", "Lightning", "TensorFlow", "Scikit-learn", "Hydra", "Optuna", "OpenCV"]
+    },
+    {
+      "icon": "🚀",
+      "title": "MLOps & Platforms",
+      "color": "rgba(127,90,240,.12)",
+      "items": ["MLFlow", "Azure ML", "Databricks", "Docker", "Airflow", "Hugging Face"]
+    },
+    {
+      "icon": "🛠",
+      "title": "Libraries & Tools",
+      "color": "rgba(44,182,125,.12)",
+      "items": ["CUDA", "ONNX", "FAISS", "LangChain", "LangGraph", "FastAPI", "Flask", "Milvus"]
+    }
+  ],
+
+  "projects": [
+    {
+      "title": "Hybrid Multi-Modal BEV Encoder",
+      "description": "Fuses LiDAR-based geometric features with camera-derived semantic BEV representations for robust object detection in autonomous driving.",
+      "tech": ["LiDAR BEV", "Camera BEV", "PointPillars", "PyTorch", "Lightning"],
+      "github": "https://github.com/vishwajeet-hogale/Hybrid-Scene-Encoder-For-Agent-Detection",
+      "demo": "",
+      "gradient": "linear-gradient(135deg,#6c63ff,#00d2ff)",
+      "category": "Computer Vision"
+    },
+    {
+      "title": "Transformers From Scratch",
+      "description": "Implementation of transformer architectures from the ground up — covering attention mechanisms, positional encodings, and training pipelines.",
+      "tech": ["PyTorch", "Transformers", "Attention"],
+      "github": "https://github.com/vishwajeet-hogale/Transformers-From-Scratch",
+      "demo": "",
+      "gradient": "linear-gradient(135deg,#7f5af0,#2cb67d)",
+      "category": "Deep Learning"
+    },
+    {
+      "title": "RAG-based Search Engine",
+      "description": "A retrieval-augmented generation search engine combining semantic retrieval with LLM-based answer generation for accurate information access.",
+      "tech": ["RAG", "LangChain", "FAISS", "Python"],
+      "github": "https://github.com/vishwajeet-hogale/RAG-based-Search-Engine",
+      "demo": "",
+      "gradient": "linear-gradient(135deg,#00d2ff,#ff6b6b)",
+      "category": "NLP"
+    },
+    {
+      "title": "Semantic Segmentation (KITTI)",
+      "description": "Hierarchical transformer-based semantic segmentation using SegFormer for pixel-level perception in autonomous driving environments.",
+      "tech": ["PyTorch", "SegFormer", "KITTI"],
+      "github": "",
+      "demo": "",
+      "gradient": "linear-gradient(135deg,#f7971e,#ffd200)",
+      "category": "Computer Vision"
+    },
+    {
+      "title": "LiDAR Obstacle Detection Pipeline",
+      "description": "C++ based LiDAR pipeline using PCL for point cloud segmentation, clustering, and 3D object localization in driving scenes.",
+      "tech": ["C++", "PCL", "Point Clouds"],
+      "github": "",
+      "demo": "",
+      "gradient": "linear-gradient(135deg,#ee0979,#ff6a00)",
+      "category": "Computer Vision"
+    },
+    {
+      "title": "Scenario Tagging — OpenLane-V2",
+      "description": "Added scenario labels to the OpenLane-V2 dataset and benchmarked model robustness across diverse driving conditions.",
+      "tech": ["Python", "Dataset Curation", "Benchmarking"],
+      "github": "",
+      "demo": "",
+      "gradient": "linear-gradient(135deg,#2cb67d,#6c63ff)",
+      "category": "Data Engineering"
+    }
+  ],
+
+  "publications": [
+    {
+      "type": "paper",
+      "title": "Transformers in Medicine: Improving Vision-Language Alignment for Medical Image Captioning",
+      "venue": "MICAD 2025",
+      "description": "Proposed a VLM architecture using image-conditioned LSTM and hybrid MSE + Cosine loss to improve MRI image captioning.",
+      "link": ""
+    },
+    {
+      "type": "patent",
+      "title": "Self-Supervised Spatio-Temporal Encoder for Scene & Action Understanding",
+      "venue": "Patent in progress",
+      "description": "Invented a self-supervised spatiotemporal video encoder producing semantic embeddings for 10K+ drive videos enabling similarity-based video retrieval.",
+      "link": ""
+    }
+  ],
+
+  "education": [
+    {
+      "school": "Northeastern University",
+      "degree": "M.S. in Artificial Intelligence — Computer Vision",
+      "period": "Sep 2024 – Aug 2026 · Boston, MA",
+      "gpa": "GPA: 3.73"
+    },
+    {
+      "school": "PES University",
+      "degree": "B.Tech in CS — Machine Intelligence & Data Science",
+      "period": "Aug 2018 – May 2022 · Bangalore, India",
+      "gpa": "GPA: 8.78"
+    }
+  ],
+
+  "contact": {
+    "heading": "Have a project in mind?",
+    "description": "I'm always open to discussing new opportunities in AI, computer vision, and autonomous systems. Let's build something great together.",
+    "ctaHeading": "Ready to collaborate?",
+    "ctaDescription": "Whether it's a research collaboration, full-time role, or an exciting project — I'd love to hear from you.",
+    "links": [
+      { "icon": "📧", "label": "Email", "value": "hogale.v@northeastern.edu", "url": "mailto:hogale.v@northeastern.edu", "color": "rgba(108,99,255,.12)" },
+      { "icon": "📱", "label": "Phone", "value": "+1 (857) 339 8714", "url": "tel:+18573398714", "color": "rgba(0,210,255,.12)" },
+      { "icon": "💼", "label": "LinkedIn", "value": "vishwajeet-hogale", "url": "https://linkedin.com/in/vishwajeet-hogale", "color": "rgba(127,90,240,.12)" },
+      { "icon": "🐙", "label": "GitHub", "value": "vishwajeet-hogale", "url": "https://github.com/vishwajeet-hogale", "color": "rgba(44,182,125,.12)" }
+    ]
+  }
+};
+
+// ============================================================
+//  RENDERER — Builds entire DOM from portfolioData
+// ============================================================
+(function render() {
+  const d = portfolioData;
+  const app = document.getElementById('app');
+
+  // Helpers
+  const esc = s => typeof s === 'string' ? s.replace(/</g,'&lt;').replace(/>/g,'&gt;') : s;
+  const safe = s => s || '';
+
+  // Get unique project categories for filter
+  const categories = ['All', ...new Set(d.projects.map(p => p.category).filter(Boolean))];
+
+  app.innerHTML = `
+  <!-- Nav -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">VH.</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" onclick="closeNav()">About</a></li>
+        <li><a href="#experience" onclick="closeNav()">Experience</a></li>
+        <li><a href="#skills" onclick="closeNav()">Skills</a></li>
+        <li><a href="#projects" onclick="closeNav()">Projects</a></li>
+        <li><a href="#publications" onclick="closeNav()">Research</a></li>
+        <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+      </ul>
+      <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
-  </div>
-  
-  
-  
-    <header>
-        <div class="portfolio-name p-2 ">
-            <a href="">Vishwajeet Hogale</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div><div class="hero-grid"></div></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span> ${esc(d.meta.heroTagline)}</div>
+      <h1>${d.meta.heroHeading}</h1>
+      <p>${esc(d.meta.heroDescription)}</p>
+      <div class="hero-buttons">
+        <a href="${safe(d.contact.links[0]?.url)}" class="btn btn-primary">Get in Touch</a>
+        ${d.meta.resumeUrl ? `<a href="${esc(d.meta.resumeUrl)}" class="btn btn-secondary" target="_blank">Download Resume ↓</a>` : `<a href="#projects" class="btn btn-secondary">View Projects ↓</a>`}
+      </div>
+      <div class="hero-stats">
+        ${d.meta.stats.map(s => `<div class="stat"><div class="stat-num">${esc(s.value)}</div><div class="stat-label">${esc(s.label)}</div></div>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header"><span class="section-tag">About</span><h2 class="section-title">Building AI That Sees &amp; Understands</h2></div>
+      <div class="about-grid">
+        <div class="about-text fade-up">
+          ${d.about.paragraphs.map(p => `<p>${esc(p)}</p>`).join('')}
+          <div class="about-highlights">
+            ${d.about.highlights.map(h => `<div class="highlight"><div class="highlight-icon">${h.icon}</div><h4>${esc(h.title)}</h4><p>${esc(h.description)}</p></div>`).join('')}
+          </div>
         </div>
-        <nav>
-            <ul class="">
-                <li class="uff"><a href="#projects">Projects</a></li>
-                <li class="uff"><a href="#about-mee">About me</a></li>
-                <li class="uff"><a href="#contact">Contact me</a></li>
-                <li class="uff1"><span  style="font-size:20px;cursor:pointer;" onclick="openNav()" >&#9776;</span></li>
+        <div class="about-visual fade-up">
+          <div class="code-window">
+            <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+            <div class="code-body">
+              ${d.about.codeSnippet.lines.map(l => l.text === '' ? '<br>' : (l.class ? `<span class="${l.class}">${l.text}</span><br>` : `${l.text}<br>`)).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" style="background:var(--bg2)">
+    <div class="container">
+      <div class="section-header"><span class="section-tag">Experience</span><h2 class="section-title">Where I've Worked</h2></div>
+      <div class="timeline fade-up">
+        ${d.experience.map(e => `
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-top">
+              <div><div class="timeline-role">${esc(e.role)}</div><div class="timeline-company">${esc(e.company)}</div></div>
+              <div class="timeline-date">${esc(e.date)}</div>
+            </div>
+            <div class="timeline-loc">📍 ${esc(e.location)}</div>
+            <ul class="timeline-points">
+              ${e.points.map(p => `<li>${esc(p)}</li>`).join('')}
             </ul>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>
 
-        </nav>
-        
-          
-        
-        
-    </header>
-    
-        <section class=" car-slide" style="width: 100%;padding: 40px;" >
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" >
-                <div class="carousel-inner">
-                  <div class="carousel-item active" style="height: 550px;">
-                    <img src="./images/yello.jpg" class="d-block w-100" alt="..." >
-                    
-                  </div>
-                  <div class="carousel-item" style="height: 550px;">
-                    <img src="./images/pic3.jpg" class="d-block w-100" alt="..." >
-                  </div>
-                  <div class="carousel-item" style="height: 550px;">
-                    <img src="./images/pic.jpg" class="d-block w-100" alt="..." >
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-        </section>
-        <section class=" my-name text-center justify-content-center " style="margin-top: 100px;width: 100%;" id="about-mee">
-          <span><h1 style="text-transform: uppercase;font-weight: 800;font-size: 60px;">About Me</h1></span>
-          <h1></h1>
-        </section>
-        <section class="about-me text-center justify-content-center p-4 my-3" style="width: 100%;">
-          <div class=" container text-center d-inline-block">
-            <h1 ><a class="ll">Vishwajeet Hogale </a>is an enthusiastic coder and creating tech that solves user's problems excites him.<br></h1>
-            <h1 class="py-1" ><a class="ll">Machine Learning </a>and <a class="ll">Web Development</a> are his strengths. He is a student at <a class="ll">PES University </a>pursuing his bachelor's in Techonology with major in Computer Science</h1>
-            
-          </div>
-          <div class="container d-inline-block">
-            <img src="" alt="">
-          </div>
-        </section>
-        <section style="width: 100%;padding-top: 50px;padding-bottom:50px;background: rgba(210,210,220, 0.9);">
-          <section class=" my-name text-center justify-content-center " style="padding: 40  px 60px auto auto;">
-            <span class="py-5"><h1 style="text-transform: uppercase;font-weight: 800;font-size: 60px;">Skills</h1></span>
-            
-          </section>
-          <div class="row justify-content-center d-flex skills-part">
-            <div class="d-inline-block" id="chartdiv" style="height: 600px;width: 500px;"></div>
-            <div class="container-sm d-inline-block  more">
-              <!-- <h1>More</h1> -->
-              <div class="describe">
-                <h2>Full Stack</h2>
-                <div class="desc">
-                  <p>He is a full stack developer who knows <b>Flask,Django,HTML,SQL,CSS and JS</b></p>
-                </div>
-              </div>
-              <div class="describe">
-                <h2>Machine Learning</h2>
-                <div class="desc">
-                  <p style="font-size: 16px;">He has worked with <b>multiple models</b> and has done a couple of analysis based projects</p>
-                </div>
-              </div>
-              <div class="describe">
-                <h2>Deep Learning</h2>
-                <div class="desc">
-                  <p>He has worked with <b>CNN, ANN, GANs, Auto-Encoders, etc</b></p>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </section>
-        <section class=" my-name text-center justify-content-center " style="margin-top: 70px;width: 100%;" id="projects">
-          <span><h1 style="text-transform: uppercase;font-weight: 800;font-size: 60px;">Projects</h1></span>
-          <h1></h1>
-        </section>
-        <div class="row no-gutter align-items-center justify-content-center my-5 projects" style="width: 100%;padding-right: 10px;padding-left: 40px;">
-  
- 
-  
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header"><span class="section-tag">Skills</span><h2 class="section-title">Tech Stack</h2></div>
+      <div class="skills-grid fade-up">
+        ${d.skills.map(s => `
+        <div class="skill-card">
+          <div class="skill-card-header"><div class="skill-icon" style="background:${s.color}">${s.icon}</div><h3>${esc(s.title)}</h3></div>
+          <div class="skill-tags">${s.items.map(i => `<span class="skill-tag">${esc(i)}</span>`).join('')}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>
 
-          <div class="hvrbox img-hover-zoom">
-            <img src="./images/music.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
-            <div class="hvrbox-layer_top ">
-              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
-                <h2 style="font-size: 50px;">Music Generation</h2>
+  <!-- Projects -->
+  <section id="projects" style="background:var(--bg2)">
+    <div class="container">
+      <div class="section-header"><span class="section-tag">Projects</span><h2 class="section-title">Selected Work</h2></div>
+      ${categories.length > 2 ? `
+      <div class="filter-bar" id="filterBar">
+        ${categories.map(c => `<button class="filter-btn ${c === 'All' ? 'active' : ''}" data-cat="${c}">${esc(c)}</button>`).join('')}
+      </div>` : ''}
+      <div class="projects-grid fade-up" id="projectsGrid">
+        ${d.projects.map(p => `
+        <div class="project-card" data-category="${esc(p.category || '')}">
+          <div class="project-banner" style="background:${p.gradient}"></div>
+          <div class="project-body">
+            <h3>${esc(p.title)}</h3>
+            <p>${esc(p.description)}</p>
+            <div class="project-tech">${p.tech.map(t => `<span>${esc(t)}</span>`).join('')}</div>
+            <div class="project-links">
+              ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener" class="project-link">GitHub →</a>` : ''}
+              ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener" class="project-link">Live Demo →</a>` : ''}
             </div>
-              <div class="hvrbox-text ">This project uses MIDI files of different songs and makes sequences of notes of found in the songs. Now this sequence data is fed to LSTM for generation of a new tune</div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>
 
-            </div>
+  <!-- Publications -->
+  <section id="publications">
+    <div class="container">
+      <div class="section-header"><span class="section-tag">Research</span><h2 class="section-title">Publications &amp; Patents</h2></div>
+      <div class="fade-up">
+        ${d.publications.map(p => `
+        <div class="pub-card">
+          <span class="pub-badge ${p.type === 'paper' ? 'paper' : 'patent'}">${p.type === 'paper' ? 'Conference Paper' : 'Patent'}</span>
+          <h3>${esc(p.title)}</h3>
+          <p><strong>${esc(p.venue)}</strong> — ${esc(p.description)}</p>
+          ${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener" class="project-link pub-link">Read Paper →</a>` : ''}
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" style="background:var(--bg2)">
+    <div class="container">
+      <div class="section-header"><span class="section-tag">Education</span><h2 class="section-title">Academic Background</h2></div>
+      <div class="edu-grid fade-up">
+        ${d.education.map(e => `
+        <div class="edu-card">
+          <div class="school">${esc(e.school)}</div>
+          <div class="degree">${esc(e.degree)}</div>
+          <div class="period">${esc(e.period)}</div>
+          <span class="gpa">${esc(e.gpa)}</span>
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header"><span class="section-tag">Contact</span><h2 class="section-title">Let's Connect</h2></div>
+      <div class="contact-grid fade-up">
+        <div class="contact-info">
+          <h3>${esc(d.contact.heading)}</h3>
+          <p>${esc(d.contact.description)}</p>
+          <div class="contact-links">
+            ${d.contact.links.map(l => `
+            <a href="${esc(l.url)}" ${l.url.startsWith('http') ? 'target="_blank" rel="noopener"' : ''} class="contact-item">
+              <div class="ci-icon" style="background:${l.color}">${l.icon}</div>
+              <div><div class="ci-label">${esc(l.label)}</div><div class="ci-value">${esc(l.value)}</div></div>
+            </a>`).join('')}
           </div>
-          
-          <div class="hvrbox img-hover-zoom">
-            <img src="./images/summary.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
-            <div class="hvrbox-layer_top ">
-              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
-                <h2 style="font-size: 50px;">Text Summarization</h2>
-            </div>
-              <div class="hvrbox-text ">This project uses an abstractive approach to summarize text given a paragraph. It uses News articles as a dataset and auto-encoders to give two lines summary of the articles.</div>
-            </div>
+        </div>
+        <div class="contact-cta">
+          <div class="cta-box">
+            <h3>${esc(d.contact.ctaHeading)}</h3>
+            <p>${esc(d.contact.ctaDescription)}</p>
+            <a href="${safe(d.contact.links[0]?.url)}" class="btn btn-primary">Send me an Email</a>
           </div>
-          
-          <div class="hvrbox img-hover-zoom">
-            <img src="./images/poem.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
-            <div class="hvrbox-layer_top ">
-              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
-                <h2 style="font-size: 50px;">Text Generation</h2>
-            </div>
-              <div class="hvrbox-text ">This project deals with generation of poems, when the LSTM model is given a few words to begin with it automatically produces a sequence of words thereby forming a poem.</div>
-            </div>
-          </div>
-          
-          <div class="hvrbox img-hover-zoom">
-            <img src="./images/pets.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
-            <div class="hvrbox-layer_top ">
-              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
-                <h2 style="font-size: 50px;">Pet Clinic Management</h2>
-            </div>
-              <div class="hvrbox-text ">This project is a CRUD web app and it helps in maintaining aand analyzing different pets at a clinic.</div>
-            </div>
-          </div>
-          <div class="hvrbox img-hover-zoom">
-            <img src="./images/mask.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
-            <div class="hvrbox-layer_top ">
-                <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
-                    <h2 style="font-size: 50px;">Mask Detection</h2>
-                </div>
-              <div class="hvrbox-text ">This project uses openCV and CNN model to predict if a person is wearing a mask or not.</div>
-            </div>
-          </div>
-          <div class="hvrbox img-hover-zoom">
-            <img src="./images/crick.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
-            <div class="hvrbox-layer_top ">
-              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
-                <h2 style="font-size: 50px;">Cricket Analysis</h2>
-              </div>
-              <div class="hvrbox-text ">Analysis of professional athletes is very important as it helps in enhancing their performance.This project analyses the performance of players who played the 2011 Crick World Cup</div>
-            </div>
-          </div>
-          <div class="hvrbox img-hover-zoom">
-            <img src="./images/pic.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
-            <div class="hvrbox-layer_top ">
-              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
-                <h2>Simple ChatBot</h2>
-              </div>
-              <div class="hvrbox-text ">Chat Bot is used in many places today and so this chatbot was able to identify the intent of a person's question and it replied back with an answer. This project is still under development but soon it'll be ready.</div>
-            </div>
-          </div>
-          <div class="hvrbox img-hover-zoom">
-            <img src="./images/fake.jpg"alt="Mountains" style="height:520px;width:520px;"  class="hvrbox-layer_bottom image pic-1">
-            <div class="hvrbox-layer_top ">
-              <div class="hvrbox-layer_titlt text-center justify-content-center py-5">
-                <h2 style="font-size: 50px;">Fake News Detection</h2>
-            </div>
-              <div class="hvrbox-text ">Fake news can be really dangerous at times and the detection of such news plays a vital role in our society. This project detects fake news with an accuracy of <b>89%</b>The work is still going to make the model better and soon this project will also be ready.</div>
-            </div>
-          </div>
-        </div> 
-        <section class=" justify-content-center text-center" id="contact" style="height: 300px;width: 100%;padding-top: 20px;background: rgba(210,210,220, 0.9);">
-          <div class="contact "><h1 style="font-size:50px;font-weight: 700;padding-bottom: 30px;">Want to connect?</h1></div>
-          
-          <a href="mailto: vishwajeethogale307@gmail.com" style="text-decoration: none;color:rgba(0,0,0,0.9);"><span style="font-size: 60px;">&#9993;<p style="font-size: 20px;">Drop me a mail to collaborate</p></span></a>
-          <h2 style="font-size: 20px;">©2020 Vishwajeet Hogale</h2>
-          
-        </section>   
-        <script src="./chart.js"></script>
-        <script src="./overlay.js"></script>
-        <script src="./appear.js"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><p>© ${new Date().getFullYear()} ${esc(d.meta.name)}. All rights reserved.</p></footer>
+  `;
+
+  // --- Interactivity ---
+
+  // Project filter
+  const filterBar = document.getElementById('filterBar');
+  if (filterBar) {
+    filterBar.addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.style.display = (cat === 'All' || card.dataset.category === cat) ? '' : 'none';
+      });
+    });
+  }
+
+  // Scroll animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // Nav shadow
+  window.addEventListener('scroll', () => {
+    const n = document.getElementById('nav');
+    if (n) n.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,.3)' : 'none';
+  });
+})();
+
+// Nav toggle
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+function closeNav() { document.getElementById('navLinks').classList.remove('open'); }
+</script>
 </body>
 </html>
